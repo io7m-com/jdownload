@@ -19,7 +19,9 @@ package com.io7m.jdownload.api;
 import java.util.concurrent.ExecutorService;
 
 /**
- * An asynchronous downloader.
+ * An asynchronous downloader. Downloader implementations are required to be
+ * thread-safe: All of the methods of this class may be called from any thread
+ * at any time.
  */
 
 public interface DownloaderType

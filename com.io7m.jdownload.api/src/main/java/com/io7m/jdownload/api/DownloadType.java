@@ -21,6 +21,9 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * A download in progress.
+ *
+ * Download implementations are required to be thread-safe: All of the methods
+ * of this class may be called from any thread at any time.
  */
 
 public interface DownloadType

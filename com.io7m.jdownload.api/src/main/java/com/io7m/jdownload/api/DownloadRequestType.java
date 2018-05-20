@@ -53,7 +53,7 @@ public interface DownloadRequestType
 
   static String userAgentDefault()
   {
-    final Package pack = DownloadRequest.class.getPackage();
+    final Package pack = DownloadRequestType.class.getPackage();
     final String version = pack.getImplementationVersion();
     return new StringBuilder(32)
       .append("com.io7m.jdownload ")

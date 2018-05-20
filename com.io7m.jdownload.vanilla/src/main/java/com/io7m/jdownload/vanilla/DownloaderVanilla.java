@@ -129,6 +129,7 @@ public final class DownloaderVanilla implements DownloaderType
         this.connections,
         request,
         new CompletableFuture<>());
+
     executor.submit(download);
     return download;
   }
@@ -235,11 +236,12 @@ public final class DownloaderVanilla implements DownloaderType
     private Path download()
       throws Exception
     {
+      final URI source_uri = this.request.source();
       final HttpURLConnection head_connection =
-        this.connections.connectionFor(this.request.source());
+        this.connections.connectionFor(source_uri);
 
       final String agent = this.request.userAgent();
-      LOG.debug("HEAD {}", this.request.source());
+      LOG.debug("HEAD {}", source_uri);
       head_connection.setRequestMethod("HEAD");
       head_connection.setRequestProperty("User-Agent", agent);
       head_connection.connect();
@@ -247,19 +249,20 @@ public final class DownloaderVanilla implements DownloaderType
       final int head_code = head_connection.getResponseCode();
       LOG.debug(
         "HEAD {}: {}",
-        this.request.source(),
+        source_uri,
         Integer.valueOf(head_code));
 
+      final String separator = System.lineSeparator();
       if (head_code >= 400) {
         throw new IOException(
           new StringBuilder(128)
             .append("Download failed.")
-            .append(System.lineSeparator())
+            .append(separator)
             .append("  Status: ")
             .append(head_code)
             .append(" - ")
             .append(head_connection.getResponseMessage())
-            .append(System.lineSeparator())
+            .append(separator)
             .toString());
       }
 
@@ -269,9 +272,10 @@ public final class DownloaderVanilla implements DownloaderType
         Instant.ofEpochMilli(head_connection.getLastModified());
 
       final Instant local_modified;
-      if (Files.isRegularFile(this.request.temporaryFile())) {
+      final Path temporary_file = this.request.temporaryFile();
+      if (Files.isRegularFile(temporary_file)) {
         local_modified = Files.getLastModifiedTime(
-          this.request.temporaryFile(),
+          temporary_file,
           NOFOLLOW_LINKS).toInstant();
       } else {
         local_modified = this.clock.instant();
@@ -285,13 +289,13 @@ public final class DownloaderVanilla implements DownloaderType
           local_modified);
 
       if (!resume_supported || local_data_is_stale) {
-        Files.deleteIfExists(this.request.temporaryFile());
+        Files.deleteIfExists(temporary_file);
       }
 
       final HttpURLConnection data_connection =
-        this.connections.connectionFor(this.request.source());
+        this.connections.connectionFor(source_uri);
 
-      LOG.debug("GET {}", this.request.source());
+      LOG.debug("GET {}", source_uri);
       data_connection.setRequestMethod("GET");
       data_connection.setRequestProperty("User-Agent", agent);
       this.configureRangeRequest(resume_supported, data_connection);
@@ -300,19 +304,19 @@ public final class DownloaderVanilla implements DownloaderType
       final int data_code = data_connection.getResponseCode();
       LOG.debug(
         "GET {}: {}",
-        this.request.source(),
+        source_uri,
         Integer.valueOf(data_code));
 
       if (data_code >= 400) {
         throw new IOException(
           new StringBuilder(128)
             .append("Download failed.")
-            .append(System.lineSeparator())
+            .append(separator)
             .append("  Status: ")
             .append(data_code)
             .append(" - ")
             .append(data_connection.getResponseMessage())
-            .append(System.lineSeparator())
+            .append(separator)
             .toString());
       }
 
@@ -320,7 +324,7 @@ public final class DownloaderVanilla implements DownloaderType
         try (OutputStream output =
                new BufferedOutputStream(
                  Files.newOutputStream(
-                   this.request.temporaryFile(), CREATE, APPEND, WRITE),
+                   temporary_file, CREATE, APPEND, WRITE),
                  this.request.writeBufferSize())) {
           this.bytes_expected = server_size;
           return this.downloadData(input, output, server_size);
@@ -392,19 +396,20 @@ public final class DownloaderVanilla implements DownloaderType
 
       final long received_size = Files.size(file_tmp);
       if (received_size != expected_size) {
+        final String separator = System.lineSeparator();
         throw new IOException(
           new StringBuilder(128)
             .append(
               "Resulting file size did not match the expected size.")
-            .append(System.lineSeparator())
+            .append(separator)
             .append("  Expected: ")
             .append(Long.toUnsignedString(expected_size))
             .append(" octets")
-            .append(System.lineSeparator())
+            .append(separator)
             .append("  Received: ")
             .append(Long.toUnsignedString(received_size))
             .append(" octets")
-            .append(System.lineSeparator())
+            .append(separator)
             .toString());
       }
 

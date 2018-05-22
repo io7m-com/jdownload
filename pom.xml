@@ -32,7 +32,7 @@
   <properties>
     <io7m.api.previousVersion>0.0.1</io7m.api.previousVersion>
     <io7m.org.immutables.version>2.6.0</io7m.org.immutables.version>
-    <com.io7m.junit.version>5.1.0</com.io7m.junit.version>
+    <com.io7m.junit.version>5.2.0</com.io7m.junit.version>
   </properties>
 
   <inceptionYear>2018</inceptionYear>
@@ -119,12 +119,12 @@
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.2.0</version>
+        <version>${com.io7m.junit.version}</version>
       </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-        <version>5.2.0</version>
+        <version>${com.io7m.junit.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jmockit</groupId>

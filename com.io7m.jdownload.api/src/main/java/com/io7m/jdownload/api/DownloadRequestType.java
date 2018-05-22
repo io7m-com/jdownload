@@ -16,6 +16,7 @@
 
 package com.io7m.jdownload.api;
 
+import com.io7m.immutables.styles.ImmutablesStyleType;
 import org.immutables.value.Value;
 
 import java.net.URI;
@@ -25,7 +26,7 @@ import java.nio.file.Path;
  * A request to download some data from a URI.
  */
 
-@DownloadImmutableStyleType
+@ImmutablesStyleType
 @Value.Immutable
 public interface DownloadRequestType
 {

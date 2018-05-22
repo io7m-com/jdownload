@@ -21,6 +21,7 @@
 module com.io7m.jdownload.api
 {
   requires static org.immutables.value;
+  requires static com.io7m.immutables.style;
 
   exports com.io7m.jdownload.api;
 }

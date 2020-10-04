@@ -8,10 +8,6 @@
          <img src="https://img.shields.io/maven-central/v/com.io7m.jdownload/com.io7m.jdownload.png?style=flat-square"
               alt="Maven Central"/>
       </a>
-      <a href="https://www.codacy.com/app/github_79/jdownload">
-         <img src="https://img.shields.io/codacy/grade/beaae28dc46e4cbbb771f6ac329e9b3e.png?style=flat-square"
-              alt="Codacy"/>
-      </a>
       <a href="https://codecov.io/gh/io7m/jdownload">
          <img src="https://img.shields.io/codecov/c/github/io7m/jdownload.png?style=flat-square"
               alt="Codecov"/>

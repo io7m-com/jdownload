@@ -11,12 +11,12 @@
 
   <groupId>com.io7m.jdownload</groupId>
   <artifactId>com.io7m.jdownload</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>pom</packaging>
 
   <name>com.io7m.jdownload</name>
   <description>Simple HTTP downloads</description>
-  <url>http://github.com/io7m/jdownload</url>
+  <url>https://www.io7m.com/software/jdownload</url>
 
   <modules>
     <module>com.io7m.jdownload.core</module>
@@ -24,7 +24,7 @@
   </modules>
 
   <properties>
-    <io7m.api.previousVersion>0.0.1-SNAPSHOT</io7m.api.previousVersion>
+    <io7m.api.previousVersion>0.0.1</io7m.api.previousVersion>
     <com.io7m.junit.version>5.10.0</com.io7m.junit.version>
   </properties>
 

@@ -9,7 +9,7 @@
   <parent>
     <groupId>com.io7m.jdownload</groupId>
     <artifactId>com.io7m.jdownload</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
 
   <artifactId>com.io7m.jdownload.tests</artifactId>
@@ -17,7 +17,7 @@
 
   <name>com.io7m.jdownload.tests</name>
   <description>Simple HTTP downloads (Test suite)</description>
-  <url>http://io7m.github.io/jdownload/</url>
+  <url>https://www.io7m.com/software/jdownload</url>
 
   <properties>
     <checkstyle.skip>true</checkstyle.skip>

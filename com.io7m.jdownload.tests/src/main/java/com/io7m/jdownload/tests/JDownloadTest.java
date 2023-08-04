@@ -726,6 +726,34 @@ public final class JDownloadTest
     assertEquals("HELLO!", r.headers().get("x-example"));
   }
 
+  /**
+   * The builder method with fewer parameters gives the expected values.
+   *
+   * @param directory The output directory
+   *
+   * @throws Exception On errors
+   */
+
+  @Test
+  public void testBuilderUsesTemp(
+    final @TempDir Path directory)
+    throws Exception
+  {
+    final var outputFile =
+      directory.resolve("out.txt");
+
+    final var request =
+      JDownloadRequests.builder(
+          this.client,
+          this.server.uri(),
+          outputFile
+        )
+        .build();
+
+    assertEquals(outputFile, request.outputFile());
+    assertEquals(outputFile, request.outputFileTemporary());
+  }
+
   private void saveStats(
     final STTransferStatistics stats)
   {

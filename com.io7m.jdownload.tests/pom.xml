@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>com.io7m.jdownload</groupId>
     <artifactId>com.io7m.jdownload</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>com.io7m.jdownload.tests</artifactId>
@@ -19,18 +19,22 @@
   <description>Simple HTTP downloads (Test suite)</description>
   <url>http://io7m.github.io/jdownload/</url>
 
+  <properties>
+    <checkstyle.skip>true</checkstyle.skip>
+    <mdep.analyze.skip>true</mdep.analyze.skip>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>com.io7m.jdownload.api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>com.io7m.jdownload.vanilla</artifactId>
+      <artifactId>com.io7m.jdownload.core</artifactId>
       <version>${project.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.io7m.quixote</groupId>
+      <artifactId>com.io7m.quixote.core</artifactId>
+    </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
@@ -43,50 +47,6 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.jmockit</groupId>
-      <artifactId>jmockit</artifactId>
-    </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <!-- Check style -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-      </plugin>
-
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <argLine>
-            -javaagent:${settings.localRepository}/org/jmockit/jmockit/${jmockit.version}/jmockit-${jmockit.version}.jar
-          </argLine>
-        </configuration>
-      </plugin>
-
-      <!-- Determine test coverage -->
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-      </plugin>
-
-      <!-- Ignore dependencies that bytecode analysis gets wrong. -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <configuration>
-          <failOnWarning>true</failOnWarning>
-          <ignoredUnusedDeclaredDependencies>
-            <ignoredUnusedDeclaredDependency>org.junit.jupiter:*:*</ignoredUnusedDeclaredDependency>
-            <ignoredUnusedDeclaredDependency>${project.groupId}:*:*</ignoredUnusedDeclaredDependency>
-            <ignoredUnusedDeclaredDependency>org.jmockit:jmockit:*</ignoredUnusedDeclaredDependency>
-            <ignoredUnusedDeclaredDependency>ch.qos.logback:logback-classic:*</ignoredUnusedDeclaredDependency>
-          </ignoredUnusedDeclaredDependencies>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>

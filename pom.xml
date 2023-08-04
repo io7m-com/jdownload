@@ -6,12 +6,12 @@
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
     <artifactId>com.io7m.primogenitor.full</artifactId>
-    <version>7.5.0</version>
+    <version>8.0.0-beta0001</version>
   </parent>
 
   <groupId>com.io7m.jdownload</groupId>
   <artifactId>com.io7m.jdownload</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>com.io7m.jdownload</name>
@@ -19,18 +19,13 @@
   <url>http://github.com/io7m/jdownload</url>
 
   <modules>
-    <module>com.io7m.jdownload.api</module>
+    <module>com.io7m.jdownload.core</module>
     <module>com.io7m.jdownload.tests</module>
-    <module>com.io7m.jdownload.documentation</module>
-    <module>com.io7m.jdownload.vanilla</module>
-    <module>com.io7m.jdownload.cmdline</module>
   </modules>
 
   <properties>
-    <io7m.api.previousVersion>0.0.1</io7m.api.previousVersion>
-    <io7m.org.immutables.version>2.9.3</io7m.org.immutables.version>
-    <com.io7m.junit.version>5.9.3</com.io7m.junit.version>
-    <jmockit.version>1.49</jmockit.version>
+    <io7m.api.previousVersion>0.0.1-SNAPSHOT</io7m.api.previousVersion>
+    <com.io7m.junit.version>5.10.0</com.io7m.junit.version>
   </properties>
 
   <inceptionYear>2018</inceptionYear>
@@ -90,20 +85,12 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.immutables</groupId>
-        <artifactId>value</artifactId>
-        <version>${io7m.org.immutables.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.io7m.immutables.style</groupId>
-        <artifactId>com.io7m.immutables.style</artifactId>
+        <groupId>com.io7m.streamtime</groupId>
+        <artifactId>com.io7m.streamtime.core</artifactId>
         <version>0.0.1</version>
       </dependency>
-      <dependency>
-        <groupId>com.beust</groupId>
-        <artifactId>jcommander</artifactId>
-        <version>1.82</version>
-      </dependency>
+
+      <!-- Logging -->
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
@@ -112,8 +99,10 @@
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
-        <version>1.4.7</version>
+        <version>1.4.8</version>
       </dependency>
+
+      <!-- Test suite -->
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
@@ -125,52 +114,31 @@
         <version>${com.io7m.junit.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.jmockit</groupId>
-        <artifactId>jmockit</artifactId>
-        <version>${jmockit.version}</version>
+        <groupId>com.io7m.quixote</groupId>
+        <artifactId>com.io7m.quixote.core</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+
+      <!-- Build and metadata -->
+      <dependency>
+        <groupId>com.io7m.primogenitor</groupId>
+        <artifactId>com.io7m.primogenitor.support</artifactId>
+        <version>8.0.0-beta0001</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.versioning</artifactId>
+        <version>1.1.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.bundle</artifactId>
+        <version>2.0.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <!-- Require JDK >= 11 -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <source>11</source>
-            <target>11</target>
-            <release>11</release>
-            <annotationProcessorPaths>
-              <dependency>
-                <groupId>org.immutables</groupId>
-                <artifactId>value</artifactId>
-                <version>${io7m.org.immutables.version}</version>
-              </dependency>
-            </annotationProcessorPaths>
-          </configuration>
-        </plugin>
-
-        <!-- KStructural Maven Plugin -->
-        <plugin>
-          <groupId>com.io7m.kstructural</groupId>
-          <artifactId>io7m-kstructural-maven-plugin</artifactId>
-          <version>0.3.1</version>
-        </plugin>
-
-        <!-- Spot bugs -->
-        <plugin>
-          <groupId>com.github.spotbugs</groupId>
-          <artifactId>spotbugs-maven-plugin</artifactId>
-          <configuration>
-            <excludeFilterFile>spotbugs-filter.xml</excludeFilterFile>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
     <plugins>
       <!-- Generate a site -->
       <plugin>

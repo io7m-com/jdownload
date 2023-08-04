@@ -2,7 +2,7 @@
 
 <div xmlns="http://www.w3.org/1999/xhtml">
   <ul>
-    <li>Trivial HTTP file downloader supporting resumable downloads and metrics reporting.</li>
+    <li>Trivial HTTP file downloader providing transfer statistics.</li>
     <li>Low dependency: Requires Java 9 and uses <a href="https://www.slf4j.org/">SLF4J</a> for logging.</li>
     <li><a href="https://www.osgi.org/">OSGi</a>-ready</li>
     <li><a href="https://en.wikipedia.org/wiki/Java_Platform_Module_System">JPMS</a>-ready</li>

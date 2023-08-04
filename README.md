@@ -1,9 +1,15 @@
 jdownload
 ===
 
-[![Travis](https://img.shields.io/travis/io7m/jdownload.png?style=flat-square)](https://travis-ci.org/io7m/jdownload)
-[![Maven Central](https://img.shields.io/maven-central/v/com.io7m.jdownload/com.io7m.jdownload.png?style=flat-square)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.io7m.jdownload%22)
-[![Codacy grade](https://img.shields.io/codacy/grade/XXXX.png?style=flat-square)](https://www.codacy.com/app/github_79/jdownload)
-[![Codecov](https://img.shields.io/codecov/c/github/io7m/jdownload.png?style=flat-square)](https://codecov.io/gh/io7m/jdownload)
+[![Maven Central](https://img.shields.io/maven-central/v/com.io7m.jdownload/com.io7m.jdownload.svg?style=flat-square)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.io7m.jdownload%22)
+[![Maven Central (snapshot)](https://img.shields.io/nexus/s/https/s01.oss.sonatype.org/com.io7m.jdownload/com.io7m.jdownload.svg?style=flat-square)](https://s01.oss.sonatype.org/content/repositories/snapshots/com/io7m/jdownload/)
+[![Codecov](https://img.shields.io/codecov/c/github/io7m/jdownload.svg?style=flat-square)](https://codecov.io/gh/io7m/jdownload)
 
 ![jdownload](./src/site/resources/jdownload.jpg?raw=true)
+
+| JVM | Platform | Status |
+|-----|----------|--------|
+| OpenJDK (Temurin) Current | Linux | [![Build (OpenJDK (Temurin) Current, Linux)](https://img.shields.io/github/actions/workflow/status/io7m/jdownload/main.linux.temurin.current.yml)](https://github.com/io7m/jdownload/actions?query=workflow%3Amain.linux.temurin.current)|
+| OpenJDK (Temurin) LTS | Linux | [![Build (OpenJDK (Temurin) LTS, Linux)](https://img.shields.io/github/actions/workflow/status/io7m/jdownload/main.linux.temurin.lts.yml)](https://github.com/io7m/jdownload/actions?query=workflow%3Amain.linux.temurin.lts)|
+| OpenJDK (Temurin) Current | Windows | [![Build (OpenJDK (Temurin) Current, Windows)](https://img.shields.io/github/actions/workflow/status/io7m/jdownload/main.windows.temurin.current.yml)](https://github.com/io7m/jdownload/actions?query=workflow%3Amain.windows.temurin.current)|
+| OpenJDK (Temurin) LTS | Windows | [![Build (OpenJDK (Temurin) LTS, Windows)](https://img.shields.io/github/actions/workflow/status/io7m/jdownload/main.windows.temurin.lts.yml)](https://github.com/io7m/jdownload/actions?query=workflow%3Amain.windows.temurin.lts)|

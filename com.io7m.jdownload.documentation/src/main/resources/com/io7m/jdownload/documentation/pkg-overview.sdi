@@ -1,7 +1,0 @@
-[section [title Orientation] [id pkg.orientation]]
-[subsection [title Overview] [id pkg.orientation.overview]]
-[paragraph]
-The [term [type package] ${project.parent.name}] package implements
-a trivial Java 9 file downloader. It supports resuming downloads and can
-optionally produce friendly human-readable metrics such as the estimated
-download time remaining, megabytes per second, etc.

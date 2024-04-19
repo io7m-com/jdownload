@@ -117,7 +117,7 @@
       <dependency>
         <groupId>com.io7m.quixote</groupId>
         <artifactId>com.io7m.quixote.core</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
       </dependency>
 
       <!-- Build and metadata -->

@@ -26,7 +26,7 @@
   <properties>
     <io7m.api.previousVersion>0.0.2-SNAPSHOT</io7m.api.previousVersion>
     <io7m.java.targetJavaVersion>21</io7m.java.targetJavaVersion>
-    <com.io7m.junit.version>5.10.1</com.io7m.junit.version>
+    <com.io7m.junit.version>5.10.2</com.io7m.junit.version>
   </properties>
 
   <inceptionYear>2018</inceptionYear>

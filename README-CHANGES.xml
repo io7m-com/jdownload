@@ -3,7 +3,7 @@
    </c:releases>
    <c:ticket-systems>
       <c:ticket-system id="com.github.io7m.jdownload"
-                       url="https://github.com/io7m/jdownload/issues/"
+                       url="https://www.github.com/io7m-com/jdownload/issues/"
                        default="true"/>
    </c:ticket-systems>
 </c:changelog>

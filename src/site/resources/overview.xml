@@ -15,8 +15,8 @@
   </p>
 
   <p>
-    The <tt>jdownload</tt> package implements a trivial Java 9 HTTP downloader
-    supporting resumable downloads.
+    The <tt>jdownload</tt> package implements a trivial wrapper around the JDK HTTP client providing downloads,
+    checksum verification, and transfer statistics.
   </p>
 
 </div>

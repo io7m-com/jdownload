@@ -9,7 +9,7 @@
   <parent>
     <groupId>com.io7m.jdownload</groupId>
     <artifactId>com.io7m.jdownload</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
   </parent>
 
   <artifactId>com.io7m.jdownload.core</artifactId>

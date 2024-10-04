@@ -29,7 +29,7 @@
     <io7m.java.targetJavaVersion>21</io7m.java.targetJavaVersion>
 
     <!-- Third-party dependencies. -->
-    <com.io7m.junit.version>5.11.1</com.io7m.junit.version>
+    <com.io7m.junit.version>5.11.2</com.io7m.junit.version>
   </properties>
 
   <inceptionYear>2018</inceptionYear>
